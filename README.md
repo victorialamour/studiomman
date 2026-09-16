@@ -4,6 +4,12 @@ Site do Studio M'man, estúdio de sites sob medida para profissionais que vivem 
 
 Uma página só, sem dependência de build: é abrir o `index.html` e funciona.
 
+## Onde está no ar
+
+Hospedado no Cloudflare Pages, publicado a partir deste repositório a cada `git push`.
+O domínio é `www.studiomman.com.br`, e as tags de prévia e o `canonical` apontam para ele.
+O `_headers` guarda os arquivos de `assets/` por um ano no navegador e nunca guarda o HTML.
+
 ## Como rodar
 
 Abrir o `index.html` no navegador já mostra a página. Para testar o vídeo e as imagens do jeito que o navegador vai tratar em produção, vale subir um servidor simples:
@@ -46,4 +52,3 @@ Está tudo num arquivo só de propósito. São 67 KB de HTML com o estilo e os s
 
 - Print do site da @bylasiloja nos Projetos: o depoimento mais forte da página é dela, e a loja não aparece no portfólio
 - Endereço dos sites publicados nos cartões de Projetos, hoje apontando para o Instagram
-- A `og:image` está com caminho relativo. Ao publicar em domínio próprio, trocar para o endereço absoluto, senão o WhatsApp não acha a imagem da prévia
