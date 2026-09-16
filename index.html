@@ -580,6 +580,74 @@ summary:hover{color:var(--rosa-texto)}
 .perguntas-sec .veredito{margin:30px 0 0;max-width:46ch;font-size:17px;line-height:1.6;
   color:var(--ink);border-left:2px solid var(--rosa);padding-left:20px}
 
+
+/* O roteiro. Quatro perguntas que viram uma mensagem de WhatsApp já escrita.
+   Não tem servidor nem IA atrás: a resposta é montada aqui mesmo, a partir
+   do que a pessoa marcou. Sem isso ela teria que puxar conversa do nada. */
+#roteiro{padding-block:clamp(54px,8vw,92px);border-top:1px solid var(--rule)}
+.rot-sub{margin:18px 0 0;max-width:56ch;color:var(--mute);font-size:16px;line-height:1.7}
+#roteiro .btn.grande{margin-top:30px}
+.rot-nota{margin:16px 0 0;font-family:var(--label);font-size:12px;
+  letter-spacing:.04em;color:var(--mute)}
+
+.rot-box{margin-top:clamp(28px,4vw,40px);border:1px solid var(--rule);
+  border-radius:2px;padding:clamp(22px,3.4vw,40px);background:var(--paper)}
+.rot-topo{display:flex;align-items:center;gap:16px;margin-bottom:clamp(22px,3vw,32px)}
+.rot-barra{flex:1;height:2px;background:var(--cinza);overflow:hidden}
+.rot-barra i{display:block;height:100%;width:25%;background:var(--rosa-texto);
+  transition:width .3s ease}
+
+.rot-pergunta{font-family:var(--display);font-weight:300;
+  font-size:clamp(21px,2.6vw,30px);line-height:1.22;letter-spacing:-.018em;
+  color:var(--ink);margin:0 0 22px;max-width:24ch;text-wrap:balance}
+
+.rot-opcoes{display:grid;gap:10px;max-width:46ch}
+.rot-op{display:block;width:100%;text-align:left;cursor:pointer;
+  font-family:var(--body);font-size:16px;line-height:1.45;color:var(--ink);
+  background:transparent;border:1px solid var(--rule);border-radius:2px;
+  padding:15px 18px;transition:border-color .18s ease,background .18s ease}
+.rot-op:hover{border-color:var(--rosa-texto);background:var(--rosa-claro)}
+.rot-op:focus-visible{outline:2px solid var(--rosa-texto);outline-offset:2px}
+
+.rot-campo{display:block;width:100%;max-width:46ch;font-family:var(--body);
+  font-size:16px;color:var(--ink);background:transparent;
+  border:0;border-bottom:1px solid var(--rule);border-radius:0;
+  padding:10px 2px;transition:border-color .18s ease}
+.rot-campo:focus{outline:none;border-bottom-color:var(--rosa-texto)}
+.rot-campo::placeholder{color:var(--mute);opacity:.8}
+
+.rot-pe{margin-top:12px;min-height:22px}
+.rot-voltar{background:none;border:0;padding:15px 0;cursor:pointer;
+  font-family:var(--label);font-size:12px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--mute);
+  text-decoration:none;text-underline-offset:4px}
+.rot-voltar:hover{color:var(--ink);text-decoration:underline}
+.rot-voltar:focus-visible{outline:2px solid var(--rosa-texto);outline-offset:3px}
+.rot-voltar[hidden]{display:none}
+
+/* O resultado. A lista é numerada porque aqui a ordem é a informação:
+   é a sequência em que eu faria o trabalho. */
+.rot-final h3{font-family:var(--display);font-weight:300;
+  font-size:clamp(22px,2.8vw,32px);line-height:1.2;letter-spacing:-.018em;
+  margin:0 0 8px;max-width:22ch;text-wrap:balance}
+.rot-linha{margin:0 0 26px;color:var(--mute);font-size:16px;line-height:1.7;max-width:52ch}
+.rot-passos{list-style:none;margin:0 0 30px;padding:0;counter-reset:rp;
+  display:grid;gap:14px;max-width:54ch}
+.rot-passos li{counter-increment:rp;position:relative;padding-left:38px;
+  color:var(--ink);font-size:16px;line-height:1.6}
+.rot-passos li::before{content:counter(rp,decimal-leading-zero);
+  position:absolute;left:0;top:2px;font-family:var(--label);font-size:11px;
+  font-weight:500;letter-spacing:.14em;color:var(--rosa-texto)}
+.rot-refazer{margin-left:20px;vertical-align:middle}
+
+@media(max-width:560px){
+  .rot-topo{gap:12px}
+  .rot-refazer{display:block;margin:16px 0 0}
+}
+@media (prefers-reduced-motion: reduce){
+  .rot-barra i{transition:none}
+}
+
 /* O fecho é de dois tempos: esta frase e o convite. Qualquer parágrafo de
    apoio aqui recomeça um argumento que a essa altura já foi feito. */
 .final .abertura-final{margin:clamp(56px,8vw,96px) 0 0;max-width:20ch;
@@ -965,6 +1033,31 @@ footer{border-top:1px solid var(--rule);padding-block:44px 30px}
           <li>Quem procura o que você faz no Google, aqui na sua cidade, encontra você?</li>
         </ol>
         <p class="veredito">Se alguma incomodou, o problema não é o seu trabalho. É que ele não tem onde morar.</p>
+      </div>
+    </section>
+
+    <div class="wrap">
+    <section id="roteiro">
+      <h2 class="mono">roteiro</h2>
+
+      <div class="rv rot-intro" id="rotIntro">
+        <p class="big">Não sabe por onde começar? Responda quatro perguntas.</p>
+        <p class="rot-sub">Eu monto na tela o roteiro do que eu faria no seu caso, qual dos três serviços resolve, o que a sua página precisa ter e em que ordem. Se fizer sentido, você me chama no WhatsApp com tudo isso já escrito.</p>
+        <button class="btn grande" type="button" id="rotStart">Montar o meu roteiro <span class="arw">&rarr;</span></button>
+        <p class="rot-nota">Leva menos de um minuto. Fica tudo no seu navegador, não me chega nada até você decidir mandar.</p>
+      </div>
+
+      <div class="rot-box" id="rotBox" hidden>
+        <div class="rot-topo">
+          <span class="mono" id="rotPasso">pergunta 1 de 4</span>
+          <div class="rot-barra" role="presentation"><i id="rotFill"></i></div>
+        </div>
+
+        <div class="rot-palco" id="rotPalco" aria-live="polite"></div>
+
+        <div class="rot-pe">
+          <button class="rot-voltar" type="button" id="rotBack">Voltar</button>
+        </div>
       </div>
     </section>
 
@@ -1437,6 +1530,235 @@ var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       });
     }, {threshold:0}).observe(document.getElementById('stage'));
   }
+})();
+
+/* O roteiro. Quatro perguntas, e o resultado é montado aqui a partir do que
+   a pessoa marcou. Nada sai do navegador até ela apertar o botão do WhatsApp. */
+(function(){
+  var intro = document.getElementById('rotIntro');
+  var box   = document.getElementById('rotBox');
+  var palco = document.getElementById('rotPalco');
+  var passo = document.getElementById('rotPasso');
+  var fill  = document.getElementById('rotFill');
+  var back  = document.getElementById('rotBack');
+  var start = document.getElementById('rotStart');
+  if (!intro || !box || !palco || !start) return;
+
+  var ZAP = 'https://wa.me/5581973047976?text=';
+
+  var perguntas = [
+    { id:'faz', tipo:'texto', titulo:'Para começar, o que você faz?',
+      dica:'maquiadora, dentista, loja de roupa, arquiteta...' },
+
+    { id:'hoje', tipo:'escolha', titulo:'Você tem site hoje?', opcoes:[
+      {v:'nenhum',  t:'Não tenho nenhum'},
+      {v:'refazer', t:'Tenho um, mas não me representa mais'},
+      {v:'landing', t:'Tenho site e quero uma página só para um serviço'}
+    ]},
+
+    { id:'vende', tipo:'escolha', titulo:'Você vende produto ou atendimento?', opcoes:[
+      {v:'produto', t:'Produto, com estoque e coleção nova'},
+      {v:'servico', t:'Atendimento, consulta ou serviço'},
+      {v:'ambos',   t:'Os dois'}
+    ]},
+
+    { id:'quando', tipo:'escolha', titulo:'Para quando você quer isso no ar?', opcoes:[
+      {v:'ja',      t:'O quanto antes'},
+      {v:'semanas', t:'Nas próximas semanas'},
+      {v:'olhando', t:'Ainda estou me informando'}
+    ]}
+  ];
+
+  var r = {}, i = 0;
+
+  function servico(){
+    if (r.hoje === 'landing') return 'uma landing page';
+    if (r.vende === 'produto' || r.vende === 'ambos') return 'um site com loja';
+    return 'um site';
+  }
+
+  function motivo(){
+    if (r.hoje === 'landing')
+      return 'Uma página separada, feita para esse serviço, sem mexer no que você já tem no ar.';
+    if (r.vende === 'produto')
+      return 'Quem vende produto precisa de catálogo e carrinho, senão a venda termina no direct.';
+    if (r.vende === 'ambos')
+      return 'Você tem as duas frentes, então a loja entra sem esconder o seu atendimento.';
+    if (r.hoje === 'refazer')
+      return 'O que já funciona no seu site fica. O resto eu refaço.';
+    return 'Você não tem onde receber quem pede o seu link, e é isso que a gente resolve primeiro.';
+  }
+
+  function passos(){
+    var p = ['Leio o seu Instagram inteiro e separo as palavras que você já usa para explicar o que faz.'];
+
+    if (r.vende === 'produto' || r.vende === 'ambos')
+      p.push('Monto o catálogo por categoria, com busca, carrinho e parcelamento, e te ensino a subir coleção nova sozinha.');
+    if (r.vende === 'servico' || r.vende === 'ambos')
+      p.push('Escrevo a página na ordem em que o seu cliente decide, com as dúvidas que ele já te manda antes de fechar.');
+
+    if (r.hoje === 'nenhum')
+      p.push('Registro o endereço e publico, para quem procurar o que você faz no Google encontrar você.');
+    else if (r.hoje === 'refazer')
+      p.push('Separo o que vale manter do seu site atual, uma cor, um símbolo, um jeito de falar, e refaço o resto.');
+    else
+      p.push('A página nova entra ligada ao que você já tem, com o mesmo endereço e a mesma cara.');
+
+    if (r.quando === 'ja')
+      p.push('Sete dias entre a nossa conversa e o site no ar.');
+    else if (r.quando === 'semanas')
+      p.push('A gente marca a conversa para quando você puder, e os sete dias contam dali.');
+    else
+      p.push('Os quinze minutos de conversa valem mesmo que você não feche nada. Você sai sabendo o que eu faria.');
+
+    return p;
+  }
+
+  function rotulo(id){
+    var q = perguntas.filter(function(x){ return x.id === id; })[0];
+    if (!q || !q.opcoes) return r[id] || '';
+    var o = q.opcoes.filter(function(x){ return x.v === r[id]; })[0];
+    return o ? o.t : '';
+  }
+
+  function mensagem(){
+    var linhas = [
+      'Oi, Vic! Montei o roteiro aí no site.',
+      '',
+      'O que eu faço: ' + (r.faz || 'não respondi'),
+      'Site hoje: ' + rotulo('hoje'),
+      'Vendo: ' + rotulo('vende'),
+      'Prazo: ' + rotulo('quando'),
+      '',
+      'O roteiro apontou ' + servico() + '. Podemos conversar?'
+    ];
+    return ZAP + encodeURIComponent(linhas.join('\n'));
+  }
+
+  function progresso(){
+    var n = Math.min(i + 1, perguntas.length);
+    passo.textContent = 'pergunta ' + n + ' de ' + perguntas.length;
+    fill.style.width = (n / perguntas.length * 100) + '%';
+    back.hidden = (i === 0);
+  }
+
+  function desenha(){
+    palco.innerHTML = '';
+    if (i >= perguntas.length) return resultado();
+
+    var q = perguntas[i];
+    var h = document.createElement('p');
+    h.className = 'rot-pergunta';
+    h.id = 'rotQ';
+    h.textContent = q.titulo;
+    palco.appendChild(h);
+
+    if (q.tipo === 'texto') {
+      var campo = document.createElement('input');
+      campo.type = 'text';
+      campo.className = 'rot-campo';
+      campo.id = 'rotTexto';
+      campo.placeholder = q.dica;
+      campo.setAttribute('aria-labelledby', 'rotQ');
+      campo.value = r[q.id] || '';
+      palco.appendChild(campo);
+
+      var ok = document.createElement('button');
+      ok.type = 'button';
+      ok.className = 'btn';
+      ok.style.marginTop = '26px';
+      ok.innerHTML = 'Continuar <span class="arw">&rarr;</span>';
+      ok.addEventListener('click', function(){
+        r[q.id] = campo.value.trim();
+        i++; desenha();
+      });
+      palco.appendChild(ok);
+
+      campo.addEventListener('keydown', function(e){
+        if (e.key === 'Enter') { e.preventDefault(); ok.click(); }
+      });
+      campo.focus();
+    } else {
+      var lista = document.createElement('div');
+      lista.className = 'rot-opcoes';
+      lista.setAttribute('role', 'group');
+      lista.setAttribute('aria-labelledby', 'rotQ');
+      q.opcoes.forEach(function(o, k){
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'rot-op';
+        b.textContent = o.t;
+        b.addEventListener('click', function(){ r[q.id] = o.v; i++; desenha(); });
+        lista.appendChild(b);
+        if (k === 0) setTimeout(function(){ b.focus(); }, 0);
+      });
+      palco.appendChild(lista);
+    }
+    progresso();
+  }
+
+  function resultado(){
+    passo.textContent = 'o seu roteiro';
+    fill.style.width = '100%';
+    back.hidden = false;
+
+    var cx = document.createElement('div');
+    cx.className = 'rot-final';
+
+    var h = document.createElement('h3');
+    h.textContent = 'No seu caso eu faria ' + servico() + '.';
+    h.setAttribute('tabindex', '-1');
+    cx.appendChild(h);
+
+    var l = document.createElement('p');
+    l.className = 'rot-linha';
+    l.textContent = motivo();
+    cx.appendChild(l);
+
+    var ol = document.createElement('ol');
+    ol.className = 'rot-passos';
+    passos().forEach(function(t){
+      var li = document.createElement('li');
+      li.textContent = t;
+      ol.appendChild(li);
+    });
+    cx.appendChild(ol);
+
+    var preco = document.createElement('p');
+    preco.className = 'rot-linha';
+    preco.textContent = 'Projetos a partir de R$ 999, ou 10x de R$ 99,90 sem juros. O valor fechado eu passo depois da conversa, quando já sei o tamanho do que você precisa.';
+    cx.appendChild(preco);
+
+    var a = document.createElement('a');
+    a.className = 'btn grande';
+    a.href = mensagem();
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.innerHTML = 'Mandar isso para a Vic <span class="arw">&rarr;</span>';
+    cx.appendChild(a);
+
+    var re = document.createElement('button');
+    re.type = 'button';
+    re.className = 'rot-voltar rot-refazer';
+    re.textContent = 'Refazer';
+    re.addEventListener('click', function(){ r = {}; i = 0; desenha(); });
+    cx.appendChild(re);
+
+    palco.appendChild(cx);
+    h.focus();
+  }
+
+  start.addEventListener('click', function(){
+    intro.hidden = true;
+    box.hidden = false;
+    i = 0; r = {};
+    desenha();
+  });
+
+  back.addEventListener('click', function(){
+    if (i === 0) { box.hidden = true; intro.hidden = false; start.focus(); return; }
+    i--; desenha();
+  });
 })();
 </script>
 
