@@ -523,6 +523,41 @@ details[open] .ans{opacity:1;transform:none}
 summary:hover{color:var(--rosa-texto)}
 @media (prefers-reduced-motion: reduce){details .ans{transition:none;opacity:1;transform:none}}
 
+
+/* Fecho da página. As perguntas vêm antes do botão de propósito: quem responde
+   "sim" a alguma delas se convence sozinha, com a memória da própria semana,
+   e chega no botão já decidida. Nada aqui é gatilho inventado: não tem
+   contador, não tem vaga falsa, não tem promessa de resultado. */
+.perguntas{list-style:none;counter-reset:q;margin:34px 0 0;padding:0;
+  display:grid;gap:0;max-width:60ch}
+.perguntas li{counter-increment:q;position:relative;
+  padding:20px 0 20px 52px;border-top:1px solid var(--rule);
+  font-family:var(--display);font-weight:300;
+  font-size:clamp(18px,2vw,24px);line-height:1.38;letter-spacing:-.014em;
+  color:var(--ink);text-wrap:balance}
+.perguntas li:last-child{border-bottom:1px solid var(--rule)}
+.perguntas li::before{content:counter(q,decimal-leading-zero);
+  position:absolute;left:0;top:26px;
+  font-family:var(--label);font-size:12px;font-weight:500;letter-spacing:.06em;
+  color:var(--rosa-texto)}
+.final .veredito{margin:30px 0 0;max-width:46ch;font-size:17px;line-height:1.6;
+  color:var(--ink);border-left:2px solid var(--rosa);padding-left:20px}
+
+.porque-site{margin-top:clamp(56px,8vw,96px);
+  display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+  gap:clamp(24px,4vw,60px);align-items:start}
+.porque-site p:not(.big){margin:0 0 18px;color:var(--mute);
+  font-size:16px;line-height:1.7;max-width:52ch}
+.porque-site .big{grid-row:span 2;margin:0}
+@media(max-width:820px){
+  .porque-site{grid-template-columns:1fr;gap:18px}
+  .porque-site .big{grid-row:auto;margin-bottom:8px}
+}
+
+.fecho-final{margin-top:clamp(56px,8vw,96px);padding-top:clamp(34px,5vw,54px);
+  border-top:1px solid var(--rule)}
+.depois{margin:26px 0 0;max-width:52ch;font-size:15px;line-height:1.65;
+  color:var(--mute)}
 .final h2{font-family:var(--display);font-weight:300;
   font-size:clamp(32px,4.8vw,64px);line-height:1.14;letter-spacing:-.022em;
   margin:18px 0 0;text-wrap:balance;max-width:16ch;text-transform:none}
@@ -800,7 +835,7 @@ footer{border-top:1px solid var(--rule);padding-block:44px 30px}
       <div class="statement rv">
         <div class="inner">
           <span class="mono">investimento</span>
-          <h3>Projetos a partir de R$ 999, em até 10x sem juros.</h3>
+          <h3>Projetos a partir de R$&nbsp;999. São 10x de R$&nbsp;99,90 sem juros.</h3>
           <p class="ancora">Daí para cima depende do escopo. Uma página única não é o mesmo trabalho que uma loja inteira, com catálogo, categorias e carrinho atrás.</p>
           <p>O valor fechado eu passo depois da conversa, quando já sei qual serviço você precisa e do tamanho que ele é. Identidade visual também entra no orçamento, sozinha ou junto.</p>
           <p>Em todo projeto é assim: você responde o briefing em vinte minutos e eu escrevo o site a partir dele. Você não recebe um layout bonito e vazio esperando o seu texto.</p>
@@ -874,12 +909,29 @@ footer{border-top:1px solid var(--rule);padding-block:44px 30px}
 
     <section class="final">
       <div class="rv">
-        <span class="mono">vamos conversar</span>
+        <span class="mono">antes de você sair</span>
+        <p class="big" style="max-width:20ch">Três perguntas. Responda para você mesma.</p>
+        <ol class="perguntas">
+          <li>Alguém pediu o seu link essa semana e você mandou o perfil do Instagram?</li>
+          <li>Quantas vezes você explicou o mesmo serviço no direct, palavra por palavra?</li>
+          <li>Quem procura o que você faz no Google, aqui na sua cidade, encontra você?</li>
+        </ol>
+        <p class="veredito">Se alguma incomodou, o problema não é o seu trabalho. É que ele não tem onde morar.</p>
+      </div>
+
+      <div class="rv porque-site">
+        <p class="big" style="max-width:18ch">Um site trabalha quando você não está.</p>
+        <p>Ele atende às três da manhã, explica o seu serviço sem você digitar tudo de novo, mostra como funciona antes da conversa começar e continua no ar quando o post de ontem já sumiu do feed.</p>
+        <p>E tem o efeito que ninguém admite em voz alta: entre duas profissionais com o mesmo trabalho, quem tem site parece a que leva o próprio negócio a sério.</p>
+      </div>
+
+      <div class="rv fecho-final">
         <h2>Quinze minutos. Sem apresentação, sem proposta genérica.</h2>
-        <p>Me conte o que você faz. Eu digo, com honestidade, se consigo ajudar e como.</p>
+        <p>Me conte o que você faz. Eu digo, com honestidade, se consigo ajudar e como. E você sai da conversa sabendo o que eu faria no seu caso, mesmo que a gente não feche nada.</p>
         <div class="cta">
           <a class="btn grande" href="https://wa.me/5581973047976?text=Oi%2C%20Vic!%20Quero%20marcar%20os%20quinze%20minutos%20de%20conversa." target="_blank" rel="noopener">Chamar no WhatsApp <span class="arw">&rarr;</span></a>
         </div>
+        <p class="depois">Você manda a mensagem, eu respondo com três perguntas rápidas e a gente marca no dia que der para você. Sem ligação surpresa.</p>
       </div>
     </section>
 
