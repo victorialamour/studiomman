@@ -361,6 +361,11 @@ html.magnetico .btn.puxa.grudou{transition:transform .08s linear,box-shadow .2s}
    mesmo compasso, e o olho precisa de um lugar para descansar. */
 .respiro{background:var(--rosa-claro);padding-block:clamp(70px,11vw,150px);
   padding-inline:var(--gutter);border-block:1px solid var(--rule)}
+.respiro{--rosa-texto:#8A3E55}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .respiro{--rosa-texto:#E6AFC1}
+}
+:root[data-theme="dark"] .respiro{--rosa-texto:#E6AFC1}
 .respiro p{max-width:calc(var(--maxw) - var(--gutter));margin:0 auto;
   font-family:var(--display);font-weight:300;
   font-size:clamp(28px,4.6vw,58px);line-height:1.14;letter-spacing:-.025em;
@@ -568,6 +573,11 @@ summary:hover{color:var(--rosa-texto)}
   .porque-site .big{grid-row:auto;margin-bottom:8px}
 }
 
+.parcela{margin:10px 0 0;font-family:var(--label);font-size:15px;letter-spacing:.02em;
+  color:var(--mute);font-variant-numeric:tabular-nums}
+.entrega{margin:0 0 clamp(26px,3.5vw,38px);max-width:60ch;
+  color:var(--mute);font-size:16px;line-height:1.7}
+
 .fecho-final{margin-top:clamp(56px,8vw,96px);padding-top:clamp(34px,5vw,54px);
   border-top:1px solid var(--rule)}
 .depois{margin:26px 0 0;max-width:52ch;font-size:15px;line-height:1.65;
@@ -707,7 +717,7 @@ footer{border-top:1px solid var(--rule);padding-block:44px 30px}
         <div class="row rv">
           <div class="num">01</div>
           <h3>Quem desenha o seu site já vendeu no piso de loja.</h3>
-          <p>Antes do estúdio eu passei anos em varejo de moda e em joalheria, onde respondia por mais da metade do faturamento da loja e depois treinei as equipes de Recife, São Paulo e Fortaleza. Aprendi ali em que ordem a pessoa precisa das informações para decidir. É essa ordem que vira a estrutura da sua página, antes de qualquer decisão de cor.</p>
+          <p>Antes do estúdio eu passei anos em varejo de moda e em joalheria, vendendo e treinando equipe. Sei em que ordem a pessoa precisa das informações para decidir, e é essa ordem que vira a estrutura da sua página, antes de qualquer decisão de cor.</p>
         </div>
         <div class="row rv">
           <div class="num">02</div>
@@ -721,7 +731,7 @@ footer{border-top:1px solid var(--rule);padding-block:44px 30px}
         </div>
       </div>
       <div class="fechobloco rv">
-        <p class="fecho">Os dois sites aqui embaixo foram feitos exatamente assim.</p>
+        <p class="fecho">Os dois sites aqui embaixo foram feitos exatamente assim. Este que você está lendo também.</p>
         <a class="btn" href="https://wa.me/5581973047976?text=Oi%2C%20Vic!%20Vim%20pelo%20site%20e%20quero%20come%C3%A7ar%20um%20projeto." target="_blank" rel="noopener">Quero começar <span class="arw">&rarr;</span></a>
       </div>
     </section>
@@ -731,6 +741,7 @@ footer{border-top:1px solid var(--rule);padding-block:44px 30px}
         <h2>Projetos</h2>
         <span class="suffix">trabalhos recentes</span>
       </div>
+      <p class="entrega rv">Todos abrem rápido, funcionam do celular ao computador e acompanham o modo claro ou escuro do aparelho de quem visita. O botão no topo troca na hora, se você quiser ver.</p>
       <div class="projects">
         <article class="proj rv">
           <a class="thumb" href="https://instagram.com/ribeiro.style_" target="_blank" rel="noopener" aria-label="Ver o Ribeiro no Instagram">
@@ -798,7 +809,7 @@ footer{border-top:1px solid var(--rule);padding-block:44px 30px}
     </div>
 
     <section class="respiro">
-      <p class="rv">O site que você vai ter não existe ainda. Ele começa quando a gente conversa.</p>
+      <p class="rv">Um site trabalha quando você está <span class="gira" id="gira2" aria-hidden="true"><i>dormindo</i></span><span class="vh">dormindo, atendendo, de férias, com a família ou no trânsito</span></p>
     </section>
 
     <div class="wrap">
@@ -850,7 +861,8 @@ footer{border-top:1px solid var(--rule);padding-block:44px 30px}
       <div class="statement rv">
         <div class="inner">
           <span class="mono">investimento</span>
-          <h3>Projetos a partir de R$&nbsp;999. São 10x de R$&nbsp;99,90 sem juros.</h3>
+          <h3>Projetos a partir de R$&nbsp;999.</h3>
+          <p class="parcela">ou 10x de R$&nbsp;99,90 sem juros</p>
           <p class="ancora">Daí para cima depende do escopo. Uma página única não é o mesmo trabalho que uma loja inteira, com catálogo, categorias e carrinho atrás.</p>
           <p>O valor fechado eu passo depois da conversa, quando já sei qual serviço você precisa e do tamanho que ele é. Identidade visual também entra no orçamento, sozinha ou junto.</p>
           <p>Em todo projeto é assim: você responde o briefing em vinte minutos e eu escrevo o site a partir dele. Você não recebe um layout bonito e vazio esperando o seu texto.</p>
@@ -940,7 +952,7 @@ footer{border-top:1px solid var(--rule);padding-block:44px 30px}
     <div class="wrap">
     <section class="final">
       <div class="rv porque-site">
-        <p class="big" style="max-width:18ch">Um site trabalha quando você não está.</p>
+        <p class="big" style="max-width:20ch">O site que você vai ter não existe ainda.</p>
         <p>Ele atende às três da manhã, explica o seu serviço sem você digitar tudo de novo, mostra como funciona antes da conversa começar e continua no ar quando o post de ontem já sumiu do feed.</p>
         <p>E tem o efeito que ninguém admite em voz alta: entre duas profissionais com o mesmo trabalho, quem tem site parece a que leva o próprio negócio a sério.</p>
       </div>
@@ -1021,9 +1033,9 @@ var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* palavra que troca sozinha no rótulo do hero */
 (function(){
-  var caixa = document.getElementById('gira');
+  function girar(id, palavras, intervalo, saida){
+  var caixa = document.getElementById(id);
   if (!caixa) return;
-  var palavras = ['maquiadoras','dentistas','arquitetas','joalherias','nutricionistas','lojas de moda'];
   var i = 0, parado = false;
 
   /* a caixa fica com a largura da maior palavra, senão a linha treme a cada troca */
@@ -1053,8 +1065,14 @@ var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       requestAnimationFrame(function(){
         requestAnimationFrame(function(){ nova.classList.remove('entrando'); });
       });
-    }, 340);
-  }, 2600);
+    }, saida);
+  }, intervalo);
+  }
+
+  /* o rótulo do hero troca no compasso da leitura */
+  girar('gira', ['maquiadoras','dentistas','arquitetas','joalherias','nutricionistas','lojas de moda'], 2600, 340);
+  /* a faixa rosa troca mais rápido: ali a graça é a sequência, não cada palavra */
+  girar('gira2', ['dormindo','atendendo','de férias','com a família','no trânsito'], 1500, 220);
 })();
 
 /* botão magnético */
