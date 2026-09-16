@@ -409,6 +409,15 @@ html.magnetico .btn.puxa.grudou{transition:transform .08s linear,box-shadow .2s}
 .statement p{color:#C4BDB9;max-width:52ch;font-size:16px;line-height:1.6;margin:22px 0 0}
 .statement p.ancora{color:#E9E3DF;font-size:17px}
 .statement .mono{color:#E6AFC1}
+/* O que a pessoa leva por esse preço. O bloco é preto por escolha antiga,
+   então as cores aqui são literais e não passam pelos tokens do tema. */
+.statement .entrega{list-style:none;margin:26px 0 0;padding:0;
+  display:grid;gap:11px;max-width:54ch}
+.statement .entrega li{position:relative;padding-left:22px;
+  color:#E9E3DF;font-size:15.5px;line-height:1.55}
+.statement .entrega li::before{content:"";position:absolute;left:0;top:.62em;
+  width:7px;height:7px;border-radius:50%;background:#E6AFC1}
+
 .statement .btn{background:#E6AFC1;border-color:#E6AFC1;color:#111111;margin-top:30px}
 .statement .btn:hover{background:#F1C6D5;border-color:#F1C6D5}
 
@@ -813,8 +822,7 @@ footer{border-top:1px solid var(--rule);padding-block:44px 30px}
       <p class="promessa">Sete dias entre a nossa conversa e o seu site no ar.</p>
       <p class="lead pergunta-hero">Alguém pediu o seu link essa semana e você mandou o perfil do Instagram?</p>
       <div class="cta">
-        <a class="btn grande" href="https://wa.me/5581973047976?text=Oi%2C%20Vic!%20Vim%20pelo%20site%20e%20quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener">Falar com o estúdio <span class="arw">&rarr;</span></a>
-        <a class="btn ghost" href="#projetos">Ver projetos <span class="arw">&rarr;</span></a>
+        <a class="btn grande" href="https://wa.me/5581973047976?text=Oi%2C%20Vic!%20Vim%20pelo%20site%20e%20quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener">Falar no WhatsApp <span class="arw">&rarr;</span></a>
       </div>
     </div>
     <button class="vpause" id="vpause" type="button" aria-label="Pausar a animação da esfera">&#9208;</button>
@@ -837,7 +845,7 @@ footer{border-top:1px solid var(--rule);padding-block:44px 30px}
         <div class="row rv">
           <div class="num">01</div>
           <h3>Quem desenha o seu site já vendeu no piso de loja.</h3>
-          <p>Antes do estúdio eu passei anos em varejo de moda e em joalheria, vendendo peça cara, do tipo que ninguém leva por impulso, e treinando equipe para vender. Sei em que ordem a pessoa precisa das informações para decidir, e é essa ordem que vira a estrutura da sua página, antes de qualquer decisão de cor.</p>
+          <p>Antes do estúdio eu passei anos em varejo de moda e em joalheria, vendendo peça de alto valor, do tipo que ninguém leva por impulso, e treinando equipe para vender. Sei em que ordem a pessoa precisa das informações para decidir, e é essa ordem que vira a estrutura da sua página, antes de qualquer decisão de cor.</p>
         </div>
         <div class="row rv">
           <div class="num">02</div>
@@ -852,7 +860,7 @@ footer{border-top:1px solid var(--rule);padding-block:44px 30px}
       </div>
       <div class="fechobloco rv">
         <p class="fecho">Os dois sites aqui embaixo foram feitos exatamente assim. Este que você está lendo também.</p>
-        <a class="btn" href="https://wa.me/5581973047976?text=Oi%2C%20Vic!%20Vim%20pelo%20site%20e%20quero%20come%C3%A7ar%20um%20projeto." target="_blank" rel="noopener">Quero começar <span class="arw">&rarr;</span></a>
+        <a class="btn" href="https://wa.me/5581973047976?text=Oi%2C%20Vic!%20Vim%20pelo%20site%20e%20quero%20come%C3%A7ar%20um%20projeto." target="_blank" rel="noopener">Falar no WhatsApp <span class="arw">&rarr;</span></a>
       </div>
     </section>
 
@@ -914,17 +922,12 @@ footer{border-top:1px solid var(--rule);padding-block:44px 30px}
           <img class="svc-img" src="assets/svc-marca.jpg" width="1200" height="796" loading="lazy" decoding="async" alt="Amostras de papel nas cores da marca, em leque, com uma esfera de vidro rosa sobre elas.">
           <span class="mono">03 / marca</span>
           <h3>Identidade visual</h3>
-          <p>Criar uma marca nova, ou refazer a que você já tem. Paleta, tipografia, tratamento de imagem e os elementos que fazem o seu perfil e o seu site parecerem a mesma marca. Funciona sozinha ou junto com o site.</p>
+          <p>Criar uma marca nova, ou refazer a que você já tem, que é o que se chama de rebranding. Paleta, tipografia, tratamento de imagem e os elementos que fazem o seu perfil e o seu site parecerem a mesma marca. Funciona sozinha ou junto com o site.</p>
         </div>
       </div>
 
-      <div class="copybox rv">
-        <span class="mono">e os textos</span>
-        <h3>Quem escreve o site sou eu.</h3>
-        <div class="copygrid">
-          <p>Primeiro eu leio o seu Instagram inteiro. Vejo como você explica cada serviço com as suas palavras e o que as pessoas perguntam nos comentários e no direct. Depois você responde um briefing, que é um formulário com o que ficou faltando: como funciona o seu atendimento, seus preços, o que o cliente costuma questionar antes de fechar.</p>
-          <p>Leva uns vinte minutos, e é a única coisa que você escreve. Com o briefing na mão eu escrevo o site todo, a chamada da primeira tela, a descrição dos serviços, o sobre, o texto dos botões e as perguntas frequentes, que saem das dúvidas que os seus clientes já te mandam.</p>
-        </div>
+      <div class="cta rv" style="margin-top:clamp(30px,4vw,46px)">
+        <a class="btn" href="https://wa.me/5581973047976?text=Oi%2C%20Vic!%20Vim%20pelo%20site%20e%20quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener">Falar no WhatsApp <span class="arw">&rarr;</span></a>
       </div>
     </section>
 
@@ -952,9 +955,8 @@ footer{border-top:1px solid var(--rule);padding-block:44px 30px}
       <div class="proc">
         <div class="rv">
           <p class="big">Do primeiro contato ao site no ar.</p>
-          <p>Começo com uma conversa curta, de quinze minutos, só para entender o que você faz e como você quer ser visto. Se eu não for o estúdio certo para o seu caso, digo na hora.</p>
-          <p>A partir daí, estudo seu trabalho a fundo: o que você já publica, como você explica os seus serviços, o que seus clientes perguntam antes de fechar. É desse material que sai a estrutura do site, não de um modelo pronto.</p>
-          <p>Você recebe a primeira versão completa para olhar, não um rascunho solto. A gente ajusta junto até estar do seu jeito, e o site vai ao ar.</p>
+          <p>Antes de escrever qualquer linha eu leio o seu Instagram inteiro: como você explica cada serviço com as suas palavras, e o que as pessoas perguntam nos comentários e no direct. É desse material que sai a estrutura do site.</p>
+          <p>Se eu não for o estúdio certo para o seu caso, digo na primeira conversa.</p>
         </div>
         <div class="steps rv">
           <div class="step"><b>dia 1</b><span>Conversa de quinze minutos. Sem compromisso, sem apresentação de slides.</span></div>
@@ -977,12 +979,15 @@ footer{border-top:1px solid var(--rule);padding-block:44px 30px}
           <p class="big" style="margin-top:0">O estúdio sou eu.</p>
           <p>Eu desenho as páginas, escrevo os textos, monto e publico. Não terceirizo nenhuma dessas partes, e por isso o site sai com uma voz só.</p>
           <p>Eu também fundei duas marcas e toquei uma loja online do começo ao fim, cuidando do site, do estoque e do atendimento. Quando você me contar do seu negócio, não vou precisar que você explique o básico.</p>
-          <p>Eu pego poucos projetos por vez. É assim que dá para entregar em sete dias.</p>
           <p class="origem">O nome veio de casa. M'man é mamãe em francês, e é a palavra que eu mais escuto na vida, o dia inteiro, todo dia. Na hora de batizar o estúdio nenhuma outra teve chance. Quem escolheu foram meus filhos.</p>
           <div class="assinatura">
             <p class="nome">Victória</p>
           </div>
         </div>
+      </div>
+
+      <div class="cta rv" style="margin-top:clamp(30px,4vw,46px)">
+        <a class="btn" href="https://wa.me/5581973047976?text=Oi%2C%20Vic!%20Vim%20pelo%20site%20e%20quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener">Falar no WhatsApp <span class="arw">&rarr;</span></a>
       </div>
     </section>
 
@@ -994,8 +999,15 @@ footer{border-top:1px solid var(--rule);padding-block:44px 30px}
           <p class="parcela">ou 10x de R$&nbsp;99,90 sem juros</p>
           <p class="ancora">Daí para cima depende do escopo. Uma página única não é o mesmo trabalho que uma loja inteira, com catálogo, categorias e carrinho atrás.</p>
           <p>O valor fechado eu passo depois da conversa, quando já sei qual serviço você precisa e do tamanho que ele é. Identidade visual também entra no orçamento, sozinha ou junto.</p>
+          <ul class="entrega">
+            <li>A estrutura montada a partir do seu Instagram e do briefing, e não de um modelo pronto</li>
+            <li>Todo o texto escrito por mim, do título da primeira tela às perguntas frequentes</li>
+            <li>O site funcionando no celular e no computador, com o botão de WhatsApp em todas as telas</li>
+            <li>A primeira versão completa para você olhar antes de qualquer coisa ir ao ar</li>
+            <li>Você aprendendo a trocar texto, foto e preço sozinha na entrega</li>
+          </ul>
           <p>O texto já está no preço. Você não recebe um layout bonito e vazio esperando o seu texto.</p>
-          <a class="btn" href="https://wa.me/5581973047976?text=Oi%2C%20Vic!%20Vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Pedir um orçamento <span class="arw">&rarr;</span></a>
+          <a class="btn" href="https://wa.me/5581973047976?text=Oi%2C%20Vic!%20Vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Falar no WhatsApp <span class="arw">&rarr;</span></a>
         </div>
       </div>
     </section>
@@ -1049,17 +1061,18 @@ footer{border-top:1px solid var(--rule);padding-block:44px 30px}
           <div class="ans">Sim, e você não fica dependente de mim para isso. Na entrega eu te mostro como trocar texto, foto e preço sozinha, com calma, quantas vezes precisar até você pegar o jeito. O que você preferir não mexer, eu mexo: a gente combina esse acompanhamento depois do lançamento, porque uma página única muda pouco e uma loja com catálogo muda toda semana.</div>
         </details>
         <details>
+          <summary>E se eu não gostar do resultado? <span class="pm">+</span></summary>
+          <div class="ans">Você vê a primeira versão completa antes de qualquer coisa ir ao ar, e a gente ajusta junto até você aprovar. Nada é publicado sem o seu sim. E a conversa de quinze minutos não custa nada nem te obriga a nada: se depois dela você achar que não é comigo, a gente para por ali.</div>
+        </details>
+        <details>
           <summary>Minha marca já existe, mas não me representa mais. Dá para mudar? <span class="pm">+</span></summary>
-          <div class="ans">Dá, e isso tem um nome: rebranding. É refazer a identidade de um negócio que já está de pé, sem jogar fora o que as pessoas já reconhecem em você. A gente separa o que vale manter, uma cor, um símbolo, um jeito de falar, do que já não sustenta o preço que você cobra hoje. Costuma acontecer quando o negócio cresceu e a marca ficou com cara de quando começou.</div>
+          <div class="ans">Dá, e isso tem um nome: rebranding. A gente separa o que vale manter, uma cor, um símbolo, um jeito de falar, do que já não sustenta o preço que você cobra hoje.</div>
         </details>
         <details>
           <summary>E se eu já tenho um site? <span class="pm">+</span></summary>
           <div class="ans">Melhor ainda. A gente parte do que existe: o que funciona fica, o que não sustenta a sua autoridade sai.</div>
         </details>
-        <details>
-          <summary>Você cuida do meu Instagram também? <span class="pm">+</span></summary>
-          <div class="ans">Não é comigo. Eu cuido do site e da identidade. Para conteúdo, indico quem faz.</div>
-        </details>
+
       </div>
     </section>
 
@@ -1122,7 +1135,7 @@ footer{border-top:1px solid var(--rule);padding-block:44px 30px}
         <h2>Quinze minutos. Sem apresentação, sem proposta genérica.</h2>
         <p>Me conte o que você faz. Eu digo, com honestidade, se consigo ajudar e como. E você sai da conversa sabendo o que eu faria no seu caso, mesmo que a gente não feche nada.</p>
         <div class="cta">
-          <a class="btn grande" href="https://wa.me/5581973047976?text=Oi%2C%20Vic!%20Quero%20marcar%20os%20quinze%20minutos%20de%20conversa." target="_blank" rel="noopener">Chamar no WhatsApp <span class="arw">&rarr;</span></a>
+          <a class="btn grande" href="https://wa.me/5581973047976?text=Oi%2C%20Vic!%20Quero%20marcar%20os%20quinze%20minutos%20de%20conversa." target="_blank" rel="noopener">Falar no WhatsApp <span class="arw">&rarr;</span></a>
         </div>
         <p class="depois">Você manda a mensagem, eu respondo com três perguntas rápidas e a gente marca no dia que der para você. Sem ligação surpresa.</p>
       </div>
@@ -1134,7 +1147,7 @@ footer{border-top:1px solid var(--rule);padding-block:44px 30px}
   <div class="grao" aria-hidden="true"></div>
 
   <div class="barra" id="barra">
-    <a class="btn" href="https://wa.me/5581973047976?text=Oi%2C%20Vic!%20Vim%20pelo%20site%20e%20quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener">Falar com o estúdio <span class="arw">&rarr;</span></a>
+    <a class="btn" href="https://wa.me/5581973047976?text=Oi%2C%20Vic!%20Vim%20pelo%20site%20e%20quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener">Falar no WhatsApp <span class="arw">&rarr;</span></a>
   </div>
 
   <footer>
