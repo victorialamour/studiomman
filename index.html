@@ -1574,7 +1574,14 @@ var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       tocar(false);
     }, 2500);
 
-    if (A.readyState >= 1) seguir();
+    /* No toque a gente nem tenta saltar. O iPhone depende de requisição
+       parcial para isso, o Cloudflare Pages não responde parcial, e o salto
+       fica esperando para sempre. Começar do zero custa 1,5s de esfera e
+       garante que o vídeo rode. */
+    var toque = false;
+    try { toque = !window.matchMedia('(hover:hover) and (pointer:fine)').matches; } catch (e) {}
+    if (toque) { jaTocou = true; tocar(false); }
+    else if (A.readyState >= 1) seguir();
     else A.addEventListener('loadedmetadata', seguir, {once:true});
 
     if (!raf) raf = requestAnimationFrame(tick);
