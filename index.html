@@ -540,7 +540,21 @@ summary:hover{color:var(--rosa-texto)}
   position:absolute;left:0;top:26px;
   font-family:var(--label);font-size:12px;font-weight:500;letter-spacing:.06em;
   color:var(--rosa-texto)}
-.final .veredito{margin:30px 0 0;max-width:46ch;font-size:17px;line-height:1.6;
+/* segunda faixa rosa da página. O rosa sangrando de ponta a ponta virou um
+   recurso com sentido fixo aqui: parar e pensar. Só existe em dois lugares,
+   o respiro no meio e as perguntas do fecho, senão perde a força. */
+.perguntas-sec{background:var(--rosa-claro);border-block:1px solid var(--rule);
+  padding-block:clamp(54px,8vw,96px);
+  /* o rosa claro é mais escuro que o papel, então o texto miúdo perde contraste
+     em cima dele: aqui os tokens ficam um tom mais fechados. No tema escuro a
+     faixa vira escura e os tokens voltam a ser os da página. */
+  --rosa-texto:#8A3E55; --mute:#5A5451}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .perguntas-sec{--rosa-texto:#E6AFC1; --mute:#A69D99}
+}
+:root[data-theme="dark"] .perguntas-sec{--rosa-texto:#E6AFC1; --mute:#A69D99}
+.perguntas-sec .perguntas li{border-color:color-mix(in srgb,var(--rosa-texto) 26%,transparent)}
+.perguntas-sec .veredito{margin:30px 0 0;max-width:46ch;font-size:17px;line-height:1.6;
   color:var(--ink);border-left:2px solid var(--rosa);padding-left:20px}
 
 .porque-site{margin-top:clamp(56px,8vw,96px);
@@ -692,8 +706,8 @@ footer{border-top:1px solid var(--rule);padding-block:44px 30px}
       <div class="rows">
         <div class="row rv">
           <div class="num">01</div>
-          <h3>Ninguém mais vai ter um site igual ao seu.</h3>
-          <p>Eu não parto de um modelo pronto. A estrutura sai do seu trabalho: quais serviços você precisa explicar, o que as clientes perguntam antes de fechar, que fotos você tem na mão. Por isso nenhum site que eu faço se parece com o outro.</p>
+          <h3>Quem desenha o seu site já vendeu no piso de loja.</h3>
+          <p>Antes do estúdio eu passei anos em varejo de moda e em joalheria, onde respondia por mais da metade do faturamento da loja e depois treinei as equipes de Recife, São Paulo e Fortaleza. Aprendi ali em que ordem a pessoa precisa das informações para decidir. É essa ordem que vira a estrutura da sua página, antes de qualquer decisão de cor.</p>
         </div>
         <div class="row rv">
           <div class="num">02</div>
@@ -822,6 +836,7 @@ footer{border-top:1px solid var(--rule);padding-block:44px 30px}
         <div class="rv">
           <p class="big" style="margin-top:0">O estúdio sou eu.</p>
           <p>Você fala comigo do primeiro contato até o site no ar. Eu estudo o seu trabalho, desenho as páginas, escrevo os textos e publico. Não tem ninguém no meio para você explicar tudo de novo.</p>
+          <p>Antes do estúdio eu fundei duas marcas e toquei uma loja online do começo ao fim, cuidando do site, do estoque e do atendimento. Quando você me contar do seu negócio, não vou precisar que você explique o básico.</p>
           <p>Eu pego poucos projetos por vez. É assim que dá para entregar em sete dias.</p>
           <p class="origem">O nome veio de casa. M'man é mamãe em francês, e é a palavra que eu mais escuto na vida, o dia inteiro, todo dia. Na hora de batizar o estúdio nenhuma outra teve chance. Quem escolheu foram meus filhos.</p>
           <div class="assinatura">
@@ -907,8 +922,10 @@ footer{border-top:1px solid var(--rule);padding-block:44px 30px}
       </div>
     </section>
 
-    <section class="final">
-      <div class="rv">
+    </div>
+
+    <section class="perguntas-sec">
+      <div class="wrap rv">
         <span class="mono">antes de você sair</span>
         <p class="big" style="max-width:20ch">Três perguntas. Responda para você mesma.</p>
         <ol class="perguntas">
@@ -918,7 +935,10 @@ footer{border-top:1px solid var(--rule);padding-block:44px 30px}
         </ol>
         <p class="veredito">Se alguma incomodou, o problema não é o seu trabalho. É que ele não tem onde morar.</p>
       </div>
+    </section>
 
+    <div class="wrap">
+    <section class="final">
       <div class="rv porque-site">
         <p class="big" style="max-width:18ch">Um site trabalha quando você não está.</p>
         <p>Ele atende às três da manhã, explica o seu serviço sem você digitar tudo de novo, mostra como funciona antes da conversa começar e continua no ar quando o post de ontem já sumiu do feed.</p>
