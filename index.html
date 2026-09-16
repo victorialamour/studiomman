@@ -567,16 +567,12 @@ summary:hover{color:var(--rosa-texto)}
 .perguntas-sec .veredito{margin:30px 0 0;max-width:46ch;font-size:17px;line-height:1.6;
   color:var(--ink);border-left:2px solid var(--rosa);padding-left:20px}
 
-.porque-site{margin-top:clamp(56px,8vw,96px);
-  display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
-  gap:clamp(24px,4vw,60px);align-items:start}
-.porque-site p:not(.big){margin:0 0 18px;color:var(--mute);
-  font-size:16px;line-height:1.7;max-width:52ch}
-.porque-site .big{grid-row:span 2;margin:0}
-@media(max-width:820px){
-  .porque-site{grid-template-columns:1fr;gap:18px}
-  .porque-site .big{grid-row:auto;margin-bottom:8px}
-}
+/* O fecho é de dois tempos: esta frase e o convite. Qualquer parágrafo de
+   apoio aqui recomeça um argumento que a essa altura já foi feito. */
+.final .abertura-final{margin:clamp(56px,8vw,96px) 0 0;max-width:20ch;
+  font-family:var(--display);font-weight:300;
+  font-size:clamp(21px,2.5vw,30px);line-height:1.25;letter-spacing:-.02em;
+  color:var(--ink);text-wrap:balance}
 
 .parcela{margin:10px 0 0;font-family:var(--label);font-size:15px;letter-spacing:.02em;
   color:var(--mute);font-variant-numeric:tabular-nums}
@@ -955,11 +951,7 @@ footer{border-top:1px solid var(--rule);padding-block:44px 30px}
 
     <div class="wrap">
     <section class="final">
-      <div class="rv porque-site">
-        <p class="big" style="max-width:20ch">O site que você vai ter não existe ainda.</p>
-        <p>Ele atende às três da manhã, explica o seu serviço sem você digitar tudo de novo, mostra como funciona antes da conversa começar e continua no ar quando o post de ontem já sumiu do feed.</p>
-        <p>E tem o efeito que ninguém admite em voz alta: entre duas profissionais com o mesmo trabalho, quem tem site parece a que leva o próprio negócio a sério.</p>
-      </div>
+      <p class="rv abertura-final">O site que você vai ter não existe ainda. Ele começa quando a gente conversa.</p>
 
       <div class="rv fecho-final">
         <h2>Quinze minutos. Sem apresentação, sem proposta genérica.</h2>
