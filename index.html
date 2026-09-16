@@ -277,6 +277,11 @@ html.magnetico .btn.puxa.grudou{transition:transform .08s linear,box-shadow .2s}
 .hero p.lead{font-size:clamp(16px,1.45vw,19px);font-weight:300;line-height:1.62;
   color:color-mix(in srgb,var(--mute) 70%,var(--ink));
   max-width:46ch;margin:22px 0 0}
+/* a pergunta do hero volta na faixa rosa do fecho. O filete rosa é o que
+   liga as duas aparições, para a segunda ser lida como refrão e não repetição. */
+.hero p.pergunta-hero{color:var(--ink);max-width:34ch;
+  border-left:2px solid var(--rosa);padding-left:16px}
+
 .hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
 
 /* O vídeo ocupa a seção inteira. A esfera está em 40% da fonte, o que a jogaria
@@ -688,7 +693,7 @@ footer{border-top:1px solid var(--rule);padding-block:44px 30px}
       <div class="mono">sites sob medida para <span class="gira" id="gira" aria-hidden="true"><i>maquiadoras</i></span><span class="vh">maquiadoras, dentistas, arquitetas, joalherias, nutricionistas e lojas de moda</span></div>
       <h1 id="h1">Seu Instagram faz metade do trabalho. O site faz o resto.</h1>
       <p class="promessa">Sete dias entre a nossa conversa e o seu site no ar.</p>
-      <p class="lead">Eu faço sites para profissionais que vivem de reputação. Design, texto e identidade, tudo feito para o seu caso.</p>
+      <p class="lead pergunta-hero">Alguém pediu o seu link essa semana e você mandou o perfil do Instagram?</p>
       <div class="cta">
         <a class="btn grande" href="https://wa.me/5581973047976?text=Oi%2C%20Vic!%20Vim%20pelo%20site%20e%20quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener">Falar com o estúdio <span class="arw">&rarr;</span></a>
         <a class="btn ghost" href="#projetos">Ver projetos <span class="arw">&rarr;</span></a>
