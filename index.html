@@ -1551,13 +1551,32 @@ var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         setTimeout(function(){ tocar(true); }, 150);
       });
     }
-    try { B.currentTime = INICIO; } catch (e) {}
-    if (A.currentTime < INICIO) {
-      A.addEventListener('seeked', function(){ tocar(false); }, {once:true});
-      try { A.currentTime = INICIO; } catch (e) { tocar(false); }
-    } else {
-      tocar(false);
+    /* No celular a rede é mais lenta e os metadados ainda não chegaram quando
+       isto roda. Mexer em currentTime antes disso não faz nada, o seeked nunca
+       dispara e o vídeo fica parado no poster. Então: espera os metadados,
+       e se nada acontecer em 2,5s toca sem saltar, que é melhor que travar. */
+    var jaTocou = false;
+    function seguir(){
+      if (jaTocou) return;
+      jaTocou = true;
+      try { B.currentTime = INICIO; } catch (e) {}
+      if (A.currentTime < INICIO) {
+        A.addEventListener('seeked', function(){ tocar(false); }, {once:true});
+        try { A.currentTime = INICIO; } catch (e) { tocar(false); }
+      } else {
+        tocar(false);
+      }
     }
+    /* rede lenta demais: toca do começo em vez de nunca tocar */
+    setTimeout(function(){
+      if (jaTocou) return;
+      jaTocou = true;
+      tocar(false);
+    }, 2500);
+
+    if (A.readyState >= 1) seguir();
+    else A.addEventListener('loadedmetadata', seguir, {once:true});
+
     if (!raf) raf = requestAnimationFrame(tick);
   }
 
