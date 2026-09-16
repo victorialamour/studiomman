@@ -593,37 +593,11 @@ summary:hover{color:var(--rosa-texto)}
   display:flex;flex-direction:column;gap:7px;overflow:hidden}
 .esq i{display:block;background:var(--traco);border-radius:1px}
 
-/* 01, a loja: barra do navegador, menu e prateleira de produtos */
-.esq-barra{display:flex;align-items:center;gap:4px;
-  padding-bottom:8px;border-bottom:1px solid var(--rule);flex:0 0 auto}
-.esq-barra i{width:5px;height:5px;border-radius:50%}
-.esq-barra i.end{flex:1;height:5px;border-radius:1px;margin-left:6px}
-.esq-menu{display:flex;gap:6px;flex:0 0 auto}
-.esq-menu i{height:5px;width:22px}
-.esq-menu i:first-child{background:var(--rosa)}
-.esq-prateleira{flex:1;display:grid;gap:5px;
-  grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr)}
-
-/* 02, a página única: uma chamada grande e o botão voltando no fim */
-.esq-pag{flex:1;display:flex;flex-direction:column;gap:7px}
-.esq-pag i.titulo{height:20px;width:80%}
-.esq-pag i.linha{height:5px}
-.esq-pag i.linha.curta{width:62%}
-.esq-pag i.botao{height:13px;width:46%;background:var(--rosa);margin-top:2px}
-.esq-pag .fim{margin-top:auto}
-
-/* 03, a marca: o que chega na sua mão, e não uma tela */
-.esq-cores{display:flex;gap:5px;flex:0 0 auto}
-.esq-cores i{flex:1;height:24px;border:1px solid var(--rule)}
-.esq-assina{flex:1;display:flex;align-items:center;justify-content:center}
-.esq-assina b{font-family:var(--logo);font-weight:700;font-size:38px;
-  line-height:1;letter-spacing:-.04em;color:var(--ink)}
-.esq-assina b span{color:var(--rosa)}
-.esq-tipos{display:flex;flex-direction:column;gap:5px;flex:0 0 auto}
-.esq-tipos i{height:5px}
-.esq-tipos i:last-child{width:58%}
-
-@media(max-width:860px){.esq{height:128px}}
+/* As telas de Serviços são sites montados de verdade em HTML e fotografados,
+   e não desenhos: o texto dentro delas é texto mesmo, legível com zoom. */
+.svc-img{display:block;width:100%;height:auto;aspect-ratio:1200/796;
+  object-fit:cover;margin-bottom:22px;border-radius:2px;
+  background:var(--cinza);border:1px solid var(--rule)}
 
 
 /* O mesmo recurso dos esquemas de Serviços, aqui mostrando o que acontece
@@ -925,36 +899,19 @@ footer{border-top:1px solid var(--rule);padding-block:44px 30px}
       <p class="big rv" style="max-width:26ch">Três serviços. Você contrata um, dois ou os três.</p>
       <div class="cols rv">
         <div>
-          <div class="esq" aria-hidden="true">
-            <div class="esq-barra"><i></i><i></i><i></i><i class="end"></i></div>
-            <div class="esq-menu"><i></i><i></i><i></i></div>
-            <div class="esq-prateleira"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-          </div>
+          <img class="svc-img" src="assets/svc-site.jpg" width="1200" height="796" loading="lazy" decoding="async" alt="Uma loja aberta no computador e no celular, com vitrine, preços e parcelamento.">
           <span class="mono">01 / sites</span>
           <h3>Sites</h3>
           <p>Para quem vende produto. Loja de roupa, de eletrônicos, de acessórios. Catálogo separado por categoria, busca, carrinho e parcelamento. Quando chegar coleção nova, eu te ensino a subir sozinha ou subo para você.</p>
         </div>
         <div>
-          <div class="esq" aria-hidden="true">
-            <div class="esq-pag">
-              <i class="titulo"></i>
-              <i class="linha"></i>
-              <i class="linha curta"></i>
-              <i class="botao"></i>
-              <i class="linha fim"></i>
-              <i class="botao"></i>
-            </div>
-          </div>
+          <img class="svc-img" src="assets/svc-landing.jpg" width="1200" height="796" loading="lazy" decoding="async" alt="Uma página única aberta no computador e no celular, com o mesmo botão repetido do topo ao fim.">
           <span class="mono">02 / landing page</span>
           <h3>Landing pages</h3>
           <p>Uma página só. Ela existe para que quem vê o seu Instagram te chame no WhatsApp. Serve para maquiadora, dentista, arquiteta, advogada, nutricionista, qualquer profissão que viva de agenda cheia. <span class="aqui">Como essa que você está navegando agora.</span></p>
         </div>
         <div>
-          <div class="esq" aria-hidden="true">
-            <div class="esq-cores"><i style="background:#111111"></i><i style="background:#F7F6F4"></i><i style="background:#F9DDE7"></i><i style="background:#E6AFC1"></i><i style="background:#D9D7D3"></i></div>
-            <div class="esq-assina"><b>m<span>.</span></b></div>
-            <div class="esq-tipos"><i></i><i></i></div>
-          </div>
+          <img class="svc-img" src="assets/svc-marca.jpg" width="1200" height="796" loading="lazy" decoding="async" alt="Amostras de papel nas cores da marca, em leque, com uma esfera de vidro rosa sobre elas.">
           <span class="mono">03 / marca</span>
           <h3>Identidade visual</h3>
           <p>Criar uma marca nova, ou refazer a que você já tem. Paleta, tipografia, tratamento de imagem e os elementos que fazem o seu perfil e o seu site parecerem a mesma marca. Funciona sozinha ou junto com o site.</p>
