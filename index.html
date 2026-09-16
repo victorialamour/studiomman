@@ -364,14 +364,24 @@ html.magnetico .btn.puxa.grudou{transition:transform .08s linear,box-shadow .2s}
 /* A única seção que sangra de ponta a ponta e a única frase em escala grande.
    Ela existe para quebrar o ritmo: antes dela são três seções de texto no
    mesmo compasso, e o olho precisa de um lugar para descansar. */
-.respiro{background:var(--rosa-claro);padding-block:clamp(70px,11vw,150px);
+.respiro{background:var(--rosa-claro);padding-block:clamp(62px,9vw,124px);
   padding-inline:var(--gutter);border-block:1px solid var(--rule)}
-.respiro{--rosa-texto:#8A3E55}
+.respiro{--rosa-texto:#8A3E55; --mute:#5A5451}
+.respiro-in{max-width:calc(var(--maxw) - var(--gutter));margin:0 auto}
+/* O texto de apoio pertence a esta frase: o "Ele" da primeira palavra é o
+   site que ela acabou de nomear. Em duas colunas para a faixa continuar
+   sendo uma pausa e não virar mais uma seção de leitura. */
+.apoio{display:grid;grid-template-columns:1fr 1fr;
+  gap:clamp(22px,3vw,52px);margin-top:clamp(30px,4vw,46px)}
+.apoio p{margin:0;font-family:var(--body);font-weight:400;
+  font-size:16px;line-height:1.7;letter-spacing:0;
+  color:var(--mute);max-width:46ch}
+@media(max-width:820px){.apoio{grid-template-columns:1fr;gap:16px}}
 @media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]) .respiro{--rosa-texto:#E6AFC1}
+  :root:not([data-theme="light"]) .respiro{--rosa-texto:#E6AFC1; --mute:#A69D99}
 }
-:root[data-theme="dark"] .respiro{--rosa-texto:#E6AFC1}
-.respiro p{max-width:calc(var(--maxw) - var(--gutter));margin:0 auto;
+:root[data-theme="dark"] .respiro{--rosa-texto:#E6AFC1; --mute:#A69D99}
+.respiro .frase{max-width:calc(var(--maxw) - var(--gutter));margin:0 auto;
   font-family:var(--display);font-weight:300;
   font-size:clamp(28px,4.6vw,58px);line-height:1.14;letter-spacing:-.025em;
   color:var(--ink);text-wrap:balance}
@@ -806,7 +816,13 @@ footer{border-top:1px solid var(--rule);padding-block:44px 30px}
     </div>
 
     <section class="respiro">
-      <p class="rv">Um site trabalha quando você está <span class="gira" id="gira2" aria-hidden="true"><i>dormindo</i></span><span class="vh">dormindo, atendendo, de férias, com a família ou no trânsito</span></p>
+      <div class="respiro-in">
+        <p class="rv frase">Um site trabalha quando você está <span class="gira" id="gira2" aria-hidden="true"><i>dormindo</i></span><span class="vh">dormindo, atendendo, de férias, com a família ou no trânsito</span></p>
+        <div class="rv apoio">
+          <p>Ele atende às três da manhã, explica o seu serviço sem você digitar tudo de novo, mostra como funciona antes da conversa começar e continua no ar quando o post de ontem já sumiu do feed.</p>
+          <p>E tem o efeito que ninguém admite em voz alta: entre duas profissionais com o mesmo trabalho, quem tem site parece a que leva o próprio negócio a sério.</p>
+        </div>
+      </div>
     </section>
 
     <div class="wrap">
