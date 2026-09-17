@@ -292,7 +292,11 @@ html.magnetico .btn.puxa.grudou{transition:transform .08s linear,box-shadow .2s}
 
 /* O vídeo ocupa a seção inteira. A esfera está em 40% da fonte, o que a jogaria
    em cima do texto, então o translateX empurra ela para a direita da tela. */
-.sphere{position:absolute;inset:0;z-index:0;overflow:hidden}
+/* A foto fica atrás do vídeo. Se o aparelho não conseguir desenhar os
+   quadros, e alguns celulares não conseguem, a esfera aparece parada em
+   vez de a hero ficar vazia. */
+.sphere{position:absolute;inset:0;z-index:0;overflow:hidden;
+  background:url(assets/capa.jpg) center/cover no-repeat}
 .sphere video{position:absolute;inset:0;width:100%;height:100%;max-width:100%;
   object-fit:cover;display:block;
   transform:scale(1.16) translateX(15%);transform-origin:50% 50%;
@@ -779,7 +783,9 @@ footer{border-top:1px solid var(--rule);padding-block:44px 30px}
 (function(){
   try{
     var t = localStorage.getItem('mman-tema');
-    if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    /* Sem escolha guardada o site abre claro, mesmo com o celular no escuro.
+       Quem preferir escuro aperta o botão, e aí a escolha fica gravada. */
+    document.documentElement.setAttribute('data-theme', (t === 'dark') ? 'dark' : 'light');
   }catch(e){}
 })();
 </script>
@@ -1377,9 +1383,7 @@ var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   try { consulta = window.matchMedia('(prefers-color-scheme: dark)'); } catch (e) {}
 
   function atual(){
-    var t = document.documentElement.getAttribute('data-theme');
-    if (t === 'dark' || t === 'light') return t;
-    return (consulta && consulta.matches) ? 'dark' : 'light';
+    return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
   }
   function rotular(){
     var destino = atual() === 'dark' ? 'claro' : 'escuro';
