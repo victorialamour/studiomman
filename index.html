@@ -742,8 +742,13 @@ footer{border-top:1px solid var(--rule);padding-block:44px 30px}
 .fgrid a:hover{color:var(--ink)}
 /* a marca fecha a página em escala grande, preenchida por um degradê que
    caminha devagar. Tamanho em vw para encostar nas duas bordas em qualquer tela. */
-.marcona{margin-top:clamp(40px,7vw,86px);font-family:var(--display);font-weight:300;
-  font-size:14.2vw;line-height:.9;letter-spacing:-.03em;white-space:nowrap;
+/* O nome era medido em vw, ou seja, pela janela inteira, mas o espaço que
+   ele tem é o da coluna de conteúdo, que é menor. Em telas largas sobravam
+   166px para fora e o final ficava cortado. Agora a medida é cqw, que é a
+   largura da caixa onde ele está, então ele nunca passa da borda. */
+.marcona-caixa{container-type:inline-size;margin-top:clamp(40px,7vw,86px)}
+.marcona{font-family:var(--display);font-weight:300;
+  font-size:11vw;font-size:17cqw;line-height:.9;letter-spacing:-.03em;white-space:nowrap;
   background:linear-gradient(100deg,var(--rosa) 0%,var(--rosa-texto) 32%,var(--rosa) 58%,var(--rosa-claro) 100%);
   background-size:220% 100%;
   -webkit-background-clip:text;background-clip:text;color:transparent;
@@ -1197,7 +1202,7 @@ footer{border-top:1px solid var(--rule);padding-block:44px 30px}
           <p>Websites que conectam.</p>
         </div>
       </div>
-      <div class="marcona" aria-hidden="true">Studio M&rsquo;man</div>
+      <div class="marcona-caixa" aria-hidden="true"><div class="marcona">Studio M&rsquo;man</div></div>
 
       <div class="fbot">
         <span class="mono">© <span id="yr">2026</span> Studio M'man. Todos os direitos reservados.</span>
